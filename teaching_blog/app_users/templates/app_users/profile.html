@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Profile{% endblock %}
+
+{% block image_block %}
+<header class="info-header">
+  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Login </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="disabled-text" >profile</li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+        <h4 class="white-text my-4">Here you can review your profile.</h4>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center">Profile Page</h2>
+    <hr>
+      <div class="row">
+        <div class="col-md-6">
+            <b>UserName :</b>
+        </div>
+        <div class="col-md-6">
+            {{data.user.username}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>Full Name :</b>
+        </div>
+        <div class="col-md-6" style="text-transform: capitalize;">
+            {{data.user.first_name}} {{data.user.last_name}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>College Mail :</b>
+        </div>
+        <div class="col-md-6">
+            {{data.user.email}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>Role :</b>
+        </div>
+        <div class="col-md-6">
+            {{data.user_type}}
+        </div>
+    </div>
+
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-4">Edit Profile</a>
+    
+</div>
+
+
+{%endblock%}
